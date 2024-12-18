@@ -1,33 +1,61 @@
-/* 通用样式 */
+/* 页面整体背景和字体设置 */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: #1a1a1a;
-    color: #fff;
-}
-header, h1 {
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* 使用不常见的字体 */
     text-align: center;
-    margin-bottom: 20px;
+    background-color: #111111; /* 深色背景 */
+    color: #f0f0f0;
+    padding: 30px;
+    animation: flicker 1s infinite alternate; /* 背景颜色的闪烁动画 */
 }
-.button {
-    display: inline-block;
-    background-color: #ff6f61;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin: 10px;
+
+/* 背景闪烁动画 */
+@keyframes flicker {
+    0% { background-color: #111111; }
+    50% { background-color: #333333; }
+    100% { background-color: #111111; }
+}
+
+/* 标题样式 */
+h1 {
+    font-size: 2.5em;
+    color: #ff6f61; /* 红色 */
+    text-shadow: 2px 2px 10px rgba(255, 0, 0, 0.7); /* 标题的红色阴影 */
+}
+
+/* 段落文本样式 */
+p {
     font-size: 1.2em;
-    text-align: center;
+    color: #ddd;
 }
-.button:hover {
-    background-color: #e55d50;
-}
-footer {
-    background-color: #333;
+
+/* 按钮样式 */
+.button {
+    background-color: #ff4081; /* 按钮的鲜艳粉色 */
     color: white;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 50px;
+    padding: 15px 30px;
+    margin: 20px;
+    text-decoration: none;
+    border-radius: 30px; /* 更加圆润的按钮 */
+    font-size: 1.5em;
+    box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.5); /* 按钮的阴影效果 */
+    transition: transform 0.2s ease, background-color 0.3s ease; /* 按钮的动画效果 */
+}
+
+/* 按钮悬停效果 */
+.button:hover {
+    background-color: #f50057; /* 悬停时按钮颜色变化 */
+    transform: scale(1.1); /* 按钮放大 */
+}
+
+/* 按钮点击时的缩小效果 */
+.button:active {
+    transform: scale(0.95);
+}
+
+/* 显示抽奖结果的文本样式 */
+#lottery-result {
+    font-size: 1.5em;
+    margin-top: 20px;
+    color: #ffcc00; /* 奖品结果的金色文字 */
+    text-shadow: 1px 1px 5px rgba(255, 204, 0, 0.7); /* 结果的金色阴影 */
 }
