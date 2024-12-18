@@ -34,10 +34,19 @@ background-color: #e55d50;
 <a class="button" href=" ">返回主页</a >
 
 <script>
+// 页面加载时检查是否有抽奖记录
+window.onload = function() {
+const lotteryResult = localStorage.getItem('lotteryResult');
+if (lotteryResult) {
+document.getElementById('lottery-result').textContent = "您以前抽中的奖品是：" + lotteryResult + " 请加入QQ群联系管理员使用。";
+document.querySelector('button').disabled = true; // 禁用抽奖按钮
+}
+};
+
 function startLottery() {
 // 检查用户是否已经抽奖过
 if (localStorage.getItem('hasLottery') === 'true') {
-document.getElementById('lottery-result').textContent = "您已经抽过奖了，不能重复抽奖。";
+document.getElementById('lottery-result').textContent = "您已经抽过奖了，抽中的奖品是：" + localStorage.getItem('lotteryResult') + " 请加入QQ群联系管理员使用。";
 return;
 }
 
@@ -45,18 +54,24 @@ const resultDisplay = document.getElementById('lottery-result');
 const random = Math.random() * 100;
 let result;
 if (random <= 0.01) {
-result = "恭喜您抽中免单！";
+result = "免单";
 } else if (random <= 1.01) {
-result = "恭喜您抽中五折优惠！";
+result = "五折优惠";
 } else if (random <= 41.01) {
-result = "恭喜您抽中九折优惠！";
+result = "九折优惠";
 } else {
-result = "恭喜您抽中九五折优惠！";
+result = "九五折优惠";
 }
-resultDisplay.textContent = result + " 请加入QQ群联系管理员使用。";
 
-// 标记用户已经抽奖
+// 显示结果
+resultDisplay.textContent = "恭喜您抽中 " + result + "！请加入QQ群联系管理员使用。";
+
+// 标记用户已经抽奖，并保存结果
 localStorage.setItem('hasLottery', 'true');
+localStorage.setItem('lotteryResult', result);
+
+// 禁用抽奖按钮
+document.querySelector('button').disabled = true;
 }
 </script>
 </body>
