@@ -31,7 +31,6 @@
     <p>每人仅限抽奖一次，抽中折扣后需加入QQ群联系管理员使用。</p>
     <button class="button" onclick="startLottery()">开始抽奖</button>
     <p id="lottery-result"></p>
-    <!-- 确保这里的 href 路径正确 -->
     <a class="button" href="index.html">返回主页</a>
 
     <script>
@@ -47,7 +46,8 @@
         function startLottery() {
             // 检查用户是否已经抽奖过
             if (localStorage.getItem('hasLottery') === 'true') {
-                document.getElementById('lottery-result').textContent = "您已经抽过奖了，抽中的奖品是：" + localStorage.getItem('lotteryResult') + " 请加入QQ群联系管理员使用。";
+                const previousResult = localStorage.getItem('lotteryResult');
+                document.getElementById('lottery-result').textContent = "您已经抽过奖了，抽中的奖品是：" + previousResult + " 请加入QQ群联系管理员使用。";
                 return;
             }
 
