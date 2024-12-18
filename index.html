@@ -1,71 +1,79 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>女友电竞俱乐部</title>
-<style>
-body {
-font-family: Arial, sans-serif;
-margin: 0;
-padding: 0;
-background-color: #1a1a1a;
-color: #fff;
-}
-header {
-background-image: url('YOUR_IMAGE_URL'); /* Replace with Dark Zone Escape background */
-background-size: cover;
-background-position: center;
-color: white;
-text-align: center;
-padding: 50px 20px;
-}
-header h1 {
-font-size: 3em;
-margin: 0;
-}
-header p {
-font-size: 1.2em;
-margin-top: 10px;
-}
-main {
-text-align: center;
-padding: 50px 20px;
-}
-.button {
-display: inline-block;
-background-color: #ff6f61;
-color: white;
-padding: 15px 30px;
-margin: 20px;
-text-decoration: none;
-border-radius: 5px;
-font-size: 1.2em;
-}
-.button:hover {
-background-color: #e55d50;
-}
-footer {
-background-color: #333;
-color: white;
-text-align: center;
-padding: 10px 0;
-margin-top: 50px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抽奖系统 - 女友电竞俱乐部</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 20px;
+        }
+        .button {
+            background-color: #ff6f61;
+            color: white;
+            padding: 10px 20px;
+            margin: 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+        .button:hover {
+            background-color: #e55d50;
+        }
+    </style>
 </head>
 <body>
-<header>
-<h1>女友电竞俱乐部</h1>
-<p>电竞之路，我们一起奋斗，携手共创辉煌的明天！</p >
-</header>
-<main>
-<a class="button" href="prices.html">价格表</a>
-<a class="button" href="lottery.html">抽奖系统</a >
-<a class="button" href="recruitment.html">招聘</a >
-</main>
-<footer>
-<p> 2024 女友电竞俱乐部</p >
-</footer>
+    <h1>抽奖系统</h1>
+    <p>每人仅限抽奖一次，抽中折扣后需加入QQ群联系管理员使用。</p>
+    <button class="button" onclick="startLottery()">开始抽奖</button>
+    <p id="lottery-result"></p>
+    <a class="button" href="index.html">返回主页</a>
+
+    <script>
+        // 页面加载时检查是否有抽奖记录
+        window.onload = function() {
+            const lotteryResult = localStorage.getItem('lotteryResult');
+            if (lotteryResult) {
+                document.getElementById('lottery-result').textContent = "您以前抽中的奖品是：" + lotteryResult + " 请加入QQ群联系管理员使用。";
+                document.querySelector('button').disabled = true; // 禁用抽奖按钮
+            }
+        };
+
+        function startLottery() {
+            // 检查用户是否已经抽奖过
+            if (localStorage.getItem('hasLottery') === 'true') {
+                const previousResult = localStorage.getItem('lotteryResult');
+                document.getElementById('lottery-result').textContent = "您已经抽过奖了，抽中的奖品是：" + previousResult + " 请加入QQ群联系管理员使用。";
+                return;
+            }
+
+            const resultDisplay = document.getElementById('lottery-result');
+            const random = Math.random() * 100;
+            let result;
+            if (random <= 0.01) {
+                result = "免单";
+            } else if (random <= 1.01) {
+                result = "五折优惠";
+            } else if (random <= 41.01) {
+                result = "九折优惠";
+            } else {
+                result = "九五折优惠";
+            }
+
+            // 显示结果
+            resultDisplay.textContent = "恭喜您抽中 " + result + "！请加入QQ群联系管理员使用。";
+
+            // 标记用户已经抽奖，并保存结果
+            localStorage.setItem('hasLottery', 'true');
+            localStorage.setItem('lotteryResult', result);
+
+            // 禁用抽奖按钮
+            document.querySelector('button').disabled = true;
+        }
+    </script>
 </body>
 </html>
