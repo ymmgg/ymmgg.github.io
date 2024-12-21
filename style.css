@@ -23,6 +23,7 @@ body {
     margin: 0 auto;
     background-color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 h1, h2 {
@@ -57,10 +58,10 @@ th {
 }
 
 .big-link, .small-link {
-    display: block;
-    width: 100%;
+    display: inline-block;
+    width: auto;
     text-align: center;
-    padding: 15px;
+    padding: 15px 30px;
     margin: 20px 0;
     background-color: #007bff;
     color: white;
@@ -68,15 +69,27 @@ th {
     border-radius: 5px;
     font-size: 18px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Add shadow to links */
+    transition: background-color 0.3s ease;
 }
 
 .big-link:hover, .small-link:hover {
     background-color: #0056b3;
 }
 
+.small-link {
+    background-color: #6c757d; /* Grey color for small link */
+}
+
 @media (max-width: 768px) {
     .big-link, .small-link {
         font-size: 16px;
-        padding: 12px;
+        padding: 12px 20px;
+        width: 100%;
+    }
+    table {
+        font-size: 14px;
+    }
+    th, td {
+        padding: 8px;
     }
 }
