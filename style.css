@@ -2,6 +2,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
 }
+
 .background {
     position: fixed;
     top: 0;
@@ -11,34 +12,63 @@ body {
     background-size: cover;
     z-index: -1;
 }
+
 .container {
     text-align: center;
     padding: 20px;
 }
-h1 {
-    font-size: 2rem;
+
+h1, h2, p {
     color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 白色字加黑色阴影 */
 }
-p, ul {
-    color: #fff;
-}
+
 a {
     display: inline-block;
     margin: 10px;
-    padding: 10px 20px;
+    padding: 15px 30px; /* 增大按钮 */
     text-decoration: none;
     color: #fff;
     background: #007BFF;
     border-radius: 5px;
-}
-a.big-link {
     font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* 白字黑边 */
+    transition: background-color 0.3s;
 }
+
+a:hover {
+    background-color: #0056b3;
+}
+
+a.big-link {
+    font-size: 1.4rem; /* 大按钮 */
+    padding: 18px 35px;
+}
+
 a.small-link {
-    font-size: 0.9rem;
+    font-size: 1.1rem; /* 小按钮 */
     background: #6c757d;
+    padding: 12px 25px;
 }
+
 ul {
     list-style: none;
     padding: 0;
+}
+
+@media (max-width: 768px) {
+    a {
+        font-size: 1rem;
+        padding: 12px 25px;
+    }
+
+    a.big-link {
+        font-size: 1.2rem;
+        padding: 16px 30px;
+    }
+
+    a.small-link {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
 }
