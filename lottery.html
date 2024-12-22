@@ -10,20 +10,23 @@
             background-image: url('background4.jpg');
             background-size: cover;
             background-position: center;
-            color: #ADD8E6;
+            background-attachment: fixed;
+            color: #ADD8E6; /* 浅蓝色字体 */
             margin: 0;
             padding: 0;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             text-align: center;
+            overflow: hidden;
         }
 
         .container {
             padding: 0 20px;
             max-width: 100%;
             width: 100%;
+            text-align: center;
         }
 
         .btn {
@@ -35,9 +38,17 @@
             cursor: pointer;
             border: none;
             border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-red {
             background-color: red;
             color: white;
-            transition: all 0.3s;
+        }
+
+        .btn-yellow {
+            background-color: yellow;
+            color: black;
         }
 
         .btn:hover {
@@ -52,6 +63,7 @@
 
         .warning {
             color: red;
+            font-size: 1.2rem;
         }
 
         .hidden {
@@ -60,44 +72,78 @@
 
         /* 手机端优化 */
         @media (max-width: 768px) {
-            .btn { padding: 12px; font-size: 1.1rem; }
-            .result, .warning { font-size: 1.2rem; }
+            .btn {
+                padding: 12px;
+                font-size: 1.1rem;
+            }
+
+            .result, .warning {
+                font-size: 1.2rem;
+            }
+
+            .container {
+                padding: 10px;
+            }
         }
 
+        /* 更小屏幕优化 */
         @media (max-width: 480px) {
-            .btn { padding: 10px; font-size: 1rem; }
-            .result, .warning { font-size: 1rem; }
+            .btn {
+                padding: 10px;
+                font-size: 1rem;
+            }
+
+            .result, .warning {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 5px;
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <button class="btn" id="lotteryBtn" onclick="startLottery()">抽奖</button>
+        <button class="btn btn-red" id="lotteryBtn" onclick="startLottery()">抽奖</button>
         <div class="result hidden" id="result"></div>
         <div class="warning hidden" id="warning"></div>
     </div>
 
     <script>
-        const hasEntered = localStorage.getItem('hasEntered') === 'true';
-        const prize = localStorage.getItem('prize') || "";
+        // 从 localStorage 获取抽奖状态
+        let hasEntered = localStorage.getItem('hasEntered') === 'true';
+        let prize = localStorage.getItem('prize') || "";
 
         function startLottery() {
             if (hasEntered) {
+                // 如果已经抽过奖，显示已抽中的奖品
                 document.getElementById('warning').textContent = `您已抽中: ${prize}，请截屏兑换！`;
                 document.getElementById('warning').classList.remove('hidden');
                 return;
             }
 
+            // 设置概率
             const randomNum = Math.random();
-            const prize = randomNum < 0.0001 ? "免单" : (randomNum < 0.001 ? "五折" : "九折");
+            if (randomNum < 0.0001) {
+                prize = "免单";
+            } else if (randomNum < 0.001) {
+                prize = "五折";
+            } else {
+                prize = "九折";
+            }
 
+            // 显示抽奖结果
             document.getElementById('result').textContent = `恭喜！您抽中了: ${prize}`;
             document.getElementById('result').classList.remove('hidden');
 
+            // 标记已抽奖，并保存状态到 localStorage
+            hasEntered = true;
             localStorage.setItem('hasEntered', 'true');
             localStorage.setItem('prize', prize);
 
+            // 显示奖品提示
             document.getElementById('warning').textContent = `您已抽中: ${prize}，请截屏兑换！`;
             document.getElementById('warning').classList.remove('hidden');
         }
