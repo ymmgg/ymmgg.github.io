@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抽奖活动</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('background4.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #ADD8E6; /* 浅蓝色字体 */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            width: 200px;
+            padding: 15px;
+            margin: 10px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-red {
+            background-color: red;
+            color: white;
+        }
+
+        .btn-yellow {
+            background-color: yellow;
+            color: black;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .history {
+            margin-top: 30px;
+            font-size: 1rem;
+            font-weight: normal;
+            color: lightgray;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>欢迎参加抽奖活动！</h1>
+        <button class="btn btn-red" onclick="startLottery()">抽奖</button>
+        <div class="result hidden" id="result"></div>
+        <div class="history hidden" id="history"></div>
+    </div>
+
+    <script>
+        let hasEntered = false;
+        let history = [];
+
+        function startLottery() {
+            if (hasEntered) {
+                showHistory();
+                return;
+            }
+
+            // 设置概率
+            const randomNum = Math.random();
+
+            let prize;
+            if (randomNum < 0.0001) {
+                prize = "免单";
+            } else if (randomNum < 0.001) {
+                prize = "五折";
+            } else {
+                prize = "九折";
+            }
+
+            // 显示抽奖结果
+            document.getElementById('result').textContent = `恭喜！你抽中了: ${prize}`;
+            document.getElementById('result').classList.remove('hidden');
+
+            // 保存历史记录
+            history.push(prize);
+            hasEntered = true;
+
+            // 禁用抽奖按钮
+            document.querySelector('.btn-red').disabled = true;
+        }
+
+        function showHistory() {
+            let historyText = "历史记录: ";
+            history.forEach((prize, index) => {
+                historyText += `第 ${index + 1} 次: ${prize}  `;
+            });
+
+            document.getElementById('history').textContent = historyText;
+            document.getElementById('history').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
