@@ -12,11 +12,14 @@
             background: url('background2.jpg') no-repeat center center fixed;
             background-size: cover;
             height: 100%;
-            overflow: auto;
+            width: 100%;
+            overflow-x: hidden; /* 禁止水平滚动 */
         }
         .container {
             width: 100%;
+            max-width: 100%; /* 防止容器宽度超出视口 */
             padding: 20px;
+            box-sizing: border-box;
             overflow-y: auto;
         }
         h1 {
@@ -49,6 +52,7 @@
             justify-content: center;
             gap: 15px;
             margin-top: 20px;
+            flex-wrap: wrap; /* 使按钮在小屏幕下换行 */
         }
         a {
             padding: 12px 25px;
