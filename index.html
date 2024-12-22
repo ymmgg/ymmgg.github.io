@@ -30,24 +30,24 @@
             text-align: center;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start; /* 内容顶部对齐 */
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 40px 20px; /* 增加顶部间距 */
             color: white;
             box-sizing: border-box;
         }
 
         h1 {
             margin-bottom: 10px;
-            font-size: 5vw; /* 自适应宽度的字体大小 */
+            font-size: 7vw; /* 自适应宽度的字体大小 */
             line-height: 1.2;
         }
 
         /* 副标题字体 */
         .subtitle {
-            font-size: 4vw; /* 自适应宽度的字体大小 */
-            margin-bottom: 30px;
+            font-size: 5vw; /* 自适应宽度的字体大小 */
+            margin-bottom: 40px; /* 增加副标题下方的间距 */
             line-height: 1.4;
         }
 
@@ -94,12 +94,20 @@
         /* 响应式设计，手机端优化 */
         @media (max-width: 600px) {
             .container {
-                padding: 10px;
+                padding: 20px 10px; /* 调整手机端的内边距 */
+                justify-content: flex-start; /* 内容顶部对齐 */
             }
             .link {
                 font-size: 18px; /* 在手机端适当减小字体 */
                 padding: 14px 28px; /* 在手机端适当减小内边距 */
                 width: 80%; /* 按钮宽度适应手机屏幕 */
+            }
+            h1 {
+                font-size: 8vw; /* 手机端标题字体稍大 */
+            }
+            .subtitle {
+                font-size: 6vw; /* 手机端副标题字体稍大 */
+                margin-bottom: 20px; /* 调整副标题的间距 */
             }
         }
     </style>
