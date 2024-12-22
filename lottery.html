@@ -12,24 +12,17 @@
             background-position: center;
             background-attachment: fixed;
             color: #ADD8E6; /* 浅蓝色字体 */
-            text-align: center;
             margin: 0;
             padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-align: center;
             padding: 0 20px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
         }
 
         .btn {
@@ -77,7 +70,6 @@
 <body>
 
     <div class="container">
-        <h1>欢迎参加抽奖活动！</h1>
         <button class="btn btn-red" onclick="startLottery()">抽奖</button>
         <div class="result hidden" id="result"></div>
         <div class="warning hidden" id="warning"></div>
