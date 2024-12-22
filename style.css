@@ -32,12 +32,6 @@ a {
     padding: 15px 30px;
     text-decoration: none;
     color: white;
-    background: blue;
     border-radius: 5px;
     font-size: 1.2rem;
-    transition: background-color 0.3s;
-}
-
-a:hover {
-    background-color: darkblue;
 }
