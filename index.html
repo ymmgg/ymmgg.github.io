@@ -51,12 +51,10 @@
             line-height: 1.4;
         }
 
-        /* 按钮容器，设置按钮垂直居中 */
+        /* 按钮容器，设置按钮水平排列 */
         .buttons {
             display: flex;
-            flex-direction: column;
-            justify-content: center; /* 按钮垂直居中 */
-            align-items: center;
+            justify-content: center; /* 按钮水平居中 */
             gap: 20px; /* 增加按钮之间的间距 */
             width: 100%; /* 使按钮容器宽度为100% */
         }
@@ -70,7 +68,7 @@
             text-decoration: none;
             border-radius: 8px; /* 增加按钮圆角 */
             transition: background-color 0.3s;
-            width: 80%; /* 按钮宽度适应手机屏幕 */
+            width: 45%; /* 设置按钮宽度为容器的45% */
             text-align: center;
         }
 
@@ -88,7 +86,6 @@
         .yellow {
             background-color: yellow;
             color: black;
-            width: 60%; /* 黄色按钮比红色按钮窄，宽度设置为60% */
         }
 
         .yellow:hover {
@@ -106,6 +103,10 @@
             .subtitle {
                 font-size: 7vw; /* 手机端副标题字体稍大 */
                 margin-bottom: 30px; /* 调整副标题的间距 */
+            }
+            .link {
+                font-size: 16px; /* 手机端字体稍小 */
+                padding: 14px 28px; /* 手机端内边距适当减小 */
             }
         }
     </style>
