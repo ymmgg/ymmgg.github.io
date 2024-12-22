@@ -4,95 +4,171 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>价格表 - 女友电竞俱乐部</title>
-    <link rel="stylesheet" href="style.css">
     <style>
-        /* 添加白色字体颜色，确保和其他页面一致 */
-        body {
+        body, html {
+            margin: 0;
+            font-family: Arial, sans-serif;
             color: white;
+            background: linear-gradient(to bottom, #000, #222);
+            text-align: center;
+        }
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('background2.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            filter: brightness(0.6);
+        }
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #444;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #444;
+            color: white;
+        }
+        tbody tr:nth-child(odd) {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        tbody tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        a {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 1.2em;
+            text-decoration: none;
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        .big-link {
+            background-color: #007bff; /* 蓝色按钮 */
+        }
+        .big-link:hover {
+            background-color: #0056b3;
+        }
+        .small-link {
+            background-color: #ff8800; /* 橙色按钮 */
+        }
+        .small-link:hover {
+            background-color: #cc7000;
         }
     </style>
 </head>
 <body>
-    <div class="background" style="background-image: url('background2.jpg');"></div>
+    <div class="background"></div>
     <div class="container">
         <h1>女友电竞俱乐部价格表</h1>
-        <div class="pricing-table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>套餐</th>
-                        <th>价格</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>基础单 (强化)</td>
-                        <td>90元 / 130w</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>100元 / 160w</td>
-                    </tr>
-                    <tr>
-                        <td>T7热成像单</td>
-                        <td>180元 / 200w (保底一个T7热成像)</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>200元 / 260w (保底二个T7热成像)</td>
-                    </tr>
-                    <tr>
-                        <td>赌狗单</td>
-                        <td>150元 / 130w</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>200元 / 180w</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>250元 / 200w</td>
-                    </tr>
-                    <tr>
-                        <td>大金单 1</td>
-                        <td>80元 / 100w (一个大金若不出则打100w保底)</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>100元 / 150w (一个大金若不出打150w保底)</td>
-                    </tr>
-                    <tr>
-                        <td>大金单 2</td>
-                        <td>130元 / 100w (保底一个大金并且打保底100w，包括大金在内)</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>150元 / 130w (保底一个大金并且打保底130w，包括大金在内)</td>
-                    </tr>
-                    <tr>
-                        <td>老板自力更生单</td>
-                        <td>100元 / 80w (初始保底)</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>150元 / 100w (初始保底)</td>
-                    </tr>
-                    <tr>
-                        <td>老板开强化打 2 把：</td>
-                        <td>
-                            <ul>
-                                <li>一个人机 + 1w 保底</li>
-                                <li>一个真人 + 8w 保底</li>
-                                <li>一个男团老大 + 5w 保底</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>套餐</th>
+                    <th>价格</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>基础单 (强化)</td>
+                    <td>90元 / 130w</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>100元 / 160w</td>
+                </tr>
+                <tr>
+                    <td>T7热成像单</td>
+                    <td>180元 / 200w (保底一个T7热成像)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>200元 / 260w (保底二个T7热成像)</td>
+                </tr>
+                <tr>
+                    <td>赌狗单</td>
+                    <td>150元 / 130w</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>200元 / 180w</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>250元 / 200w</td>
+                </tr>
+                <tr>
+                    <td>大金单 1</td>
+                    <td>80元 / 100w (一个大金若不出则打100w保底)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>100元 / 150w (一个大金若不出打150w保底)</td>
+                </tr>
+                <tr>
+                    <td>大金单 2</td>
+                    <td>130元 / 100w (保底一个大金并且打保底100w，包括大金在内)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>150元 / 130w (保底一个大金并且打保底130w，包括大金在内)</td>
+                </tr>
+                <tr>
+                    <td>老板自力更生单</td>
+                    <td>100元 / 80w (初始保底)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>150元 / 100w (初始保底)</td>
+                </tr>
+                <tr>
+                    <td>老板开强化打 2 把</td>
+                    <td>
+                        <ul>
+                            <li>一个人机 + 1w 保底</li>
+                            <li>一个真人 + 8w 保底</li>
+                            <li>一个男团老大 + 5w 保底</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
         <p>需要其他的单可与客服进行详细咨询！若需要其他玩法单等内容可联系客服。</p>
-        <a class="big-link" href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=t3hVfxL_IEeYuQgBPLbwDklkDoaSOr2J" target="_blank">加入点单群</a>
-        <a class="small-link" href="lottery.html">新人福利抽奖</a>
+        <div class="buttons">
+            <a class="big-link" href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=t3hVfxL_IEeYuQgBPLbwDklkDoaSOr2J" target="_blank">加入点单群</a>
+            <a class="small-link" href="lottery.html">新人福利抽奖</a>
+        </div>
     </div>
 </body>
 </html>
