@@ -18,6 +18,13 @@
         }
 
         /* 中心化内容 */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* 禁止滚动 */
+        }
+
         .container {
             text-align: center;
             display: flex;
@@ -27,6 +34,7 @@
             height: 100vh;
             padding: 20px;
             color: white;
+            box-sizing: border-box;
         }
 
         h1 {
@@ -37,17 +45,17 @@
         .buttons {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px; /* 增加按钮之间的间距 */
         }
 
         /* 按钮基础样式 */
         .link {
             display: inline-block;
-            padding: 12px 24px;
-            font-size: 18px;
+            padding: 16px 32px; /* 增大按钮的内边距 */
+            font-size: 22px; /* 增大字体大小 */
             font-weight: bold;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px; /* 增加按钮圆角 */
             transition: background-color 0.3s;
         }
 
@@ -77,8 +85,8 @@
                 padding: 10px;
             }
             .link {
-                font-size: 16px;
-                padding: 10px 20px;
+                font-size: 18px; /* 在手机端适当减小字体 */
+                padding: 14px 28px; /* 在手机端适当减小内边距 */
             }
         }
     </style>
