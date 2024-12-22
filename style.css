@@ -1,7 +1,13 @@
-body {
+body, html {
+    height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
-    background: black;
+    background: black; /* 给 body 设置背景 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* 防止滚动条出现 */
 }
 
 .background {
@@ -10,38 +16,89 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('path/to/your/image.jpg') no-repeat center center;
     background-size: cover;
-    z-index: -1;
+    background-position: center;
+    z-index: -1; /* 确保背景在最底层 */
+    filter: brightness(0.6); /* 增加背景的对比度 */
 }
 
 .container {
+    position: relative;
+    z-index: 1; /* 确保内容显示在背景之上 */
     text-align: center;
     padding: 20px;
-    position: relative; /* 确保内容在背景上方 */
+    max-width: 800px;
+    box-sizing: border-box;
 }
 
-h1, h2, p {
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+h1 {
+    font-size: 2em;
+    margin: 0 0 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-/* 所有按钮样式 */
+p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-top: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 5px 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* 按钮间距 */
+    flex-wrap: wrap; /* 手机端换行 */
+}
+
 a {
     display: inline-block;
-    margin: 10px;
-    padding: 15px 30px;
+    padding: 12px 25px;
+    font-size: 1.2em;
     text-decoration: none;
-    color: white; /* 设置文字为白色 */
-    background-color: blue; /* 设置背景为蓝色 */
-    border: 2px solid blue; /* 设置蓝色边框 */
-    border-radius: 5px;
-    font-size: 1.2rem;
-    transition: background-color 0.3s;
+    color: white;
+    border-radius: 8px;
+    background-color: #007bff; /* 按钮默认颜色 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 添加阴影 */
+    transition: all 0.3s ease;
 }
 
-/* 按钮 hover 时的效果 */
 a:hover {
-    background-color: darkblue; /* 鼠标悬停时变为深蓝色 */
-    border-color: darkblue; /* 边框颜色变为深蓝色 */
+    background-color: #0056b3;
+    transform: translateY(-3px); /* 鼠标悬停上移效果 */
+}
+
+.small-link {
+    background-color: #5aa0e8; /* 略微变暗的颜色 */
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8em;
+        margin: 10px 0;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    a {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
 }
