@@ -60,7 +60,11 @@
             width: 80%;
             max-width: 350px; /* 最大宽度，避免按钮过宽 */
         }
-        .faded {
+        .small-link {
+            font-size: 1em; /* 缩小按钮文字大小 */
+            padding: 10px 20px; /* 缩小按钮内边距 */
+        }
+        .small-link.faded {
             opacity: 0.5; /* 使按钮颜色变淡 */
         }
         /* 针对手机端优化 */
@@ -88,22 +92,8 @@
         <p>陪玩、带赚柯恩币，专业高效。</p>
         <div class="buttons">
             <a href="pricing.html" class="big-link">查看价格表</a>
-            <a href="recruitment.html" class="small-link">加入我们</a>
+            <a href="recruitment.html" class="small-link faded">加入我们</a>
         </div>
     </div>
-
-    <script>
-        // 等待页面加载完成
-        window.onload = function() {
-            // 获取所有的按钮
-            var buttons = document.querySelectorAll('.big-link, .small-link');
-            
-            // 如果按钮数量大于等于 2
-            if (buttons.length >= 2) {
-                // 选择第一个按钮并将其颜色变淡
-                buttons[0].classList.add('faded');
-            }
-        }
-    </script>
 </body>
 </html>
