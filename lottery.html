@@ -18,18 +18,20 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            text-align: center;
         }
 
         .container {
-            text-align: center;
             padding: 0 20px;
+            max-width: 100%;
+            width: 100%;
         }
 
         .btn {
-            width: 80%;
+            width: 100%;
             max-width: 300px;
             padding: 15px;
-            margin: 10px;
+            margin: 10px 0;
             font-size: 1.2rem;
             cursor: pointer;
             border: none;
@@ -65,24 +67,49 @@
         .hidden {
             display: none;
         }
+
+        /* 手机端优化 */
+        @media (max-width: 768px) {
+            .btn {
+                padding: 12px;
+                font-size: 1.1rem;
+            }
+
+            .result, .warning {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* 更小屏幕优化 */
+        @media (max-width: 480px) {
+            .btn {
+                padding: 10px;
+                font-size: 1rem;
+            }
+
+            .result, .warning {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <button class="btn btn-red" onclick="startLottery()">抽奖</button>
+        <button class="btn btn-red" id="lotteryBtn" onclick="startLottery()">抽奖</button>
         <div class="result hidden" id="result"></div>
         <div class="warning hidden" id="warning"></div>
     </div>
 
     <script>
-        let hasEntered = false;
-        let prize = "";
+        // 从 localStorage 获取抽奖状态
+        let hasEntered = localStorage.getItem('hasEntered') === 'true';
+        let prize = localStorage.getItem('prize') || "";
 
         function startLottery() {
             if (hasEntered) {
-                // 已经抽奖过，显示提示信息
-                document.getElementById('warning').textContent = `你已抽中了: ${prize}，请截屏兑换！`;
+                // 如果已经抽过奖，显示已抽中的奖品
+                document.getElementById('warning').textContent = `您已抽中: ${prize}，请截屏兑换！`;
                 document.getElementById('warning').classList.remove('hidden');
                 return;
             }
@@ -98,14 +125,17 @@
             }
 
             // 显示抽奖结果
-            document.getElementById('result').textContent = `恭喜！你抽中了: ${prize}`;
+            document.getElementById('result').textContent = `恭喜！您抽中了: ${prize}`;
             document.getElementById('result').classList.remove('hidden');
 
-            // 标记已抽奖
+            // 标记已抽奖，并保存状态到 localStorage
             hasEntered = true;
+            localStorage.setItem('hasEntered', 'true');
+            localStorage.setItem('prize', prize);
 
-            // 禁用抽奖按钮
-            document.querySelector('.btn-red').disabled = true;
+            // 显示奖品提示
+            document.getElementById('warning').textContent = `您已抽中: ${prize}，请截屏兑换！`;
+            document.getElementById('warning').classList.remove('hidden');
         }
     </script>
 </body>
