@@ -17,7 +17,7 @@
             z-index: -1;
         }
 
-        /* 中心化内容 */
+        /* 禁止滚动，确保内容适应屏幕 */
         body, html {
             margin: 0;
             padding: 0;
@@ -30,47 +30,47 @@
             text-align: center;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; /* 内容顶部对齐 */
+            justify-content: center; /* 内容垂直居中 */
             align-items: center;
-            min-height: 100vh;
-            padding: 40px 20px; /* 增加顶部间距 */
+            height: 100%; /* 使容器占满整个屏幕 */
+            padding: 20px;
             color: white;
             box-sizing: border-box;
         }
 
         h1 {
             margin-bottom: 10px;
-            font-size: 7vw; /* 自适应宽度的字体大小 */
+            font-size: 10vw; /* 自适应宽度的字体大小，适应手机端 */
             line-height: 1.2;
         }
 
         /* 副标题字体 */
         .subtitle {
-            font-size: 5vw; /* 自适应宽度的字体大小 */
+            font-size: 6vw; /* 自适应宽度的字体大小，适应手机端 */
             margin-bottom: 40px; /* 增加副标题下方的间距 */
             line-height: 1.4;
         }
 
-        /* 按钮容器，设置按钮间距并让按钮居中 */
+        /* 按钮容器，设置按钮垂直居中 */
         .buttons {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: center; /* 按钮垂直居中 */
             align-items: center;
             gap: 20px; /* 增加按钮之间的间距 */
-            height: 100%; /* 使按钮容器撑满剩余空间 */
+            width: 100%; /* 使按钮容器宽度为100% */
         }
 
         /* 按钮基础样式 */
         .link {
             display: inline-block;
             padding: 18px 36px; /* 增大按钮的内边距 */
-            font-size: 22px; /* 增大字体大小 */
+            font-size: 18px; /* 在手机端适当减小字体 */
             font-weight: bold;
             text-decoration: none;
             border-radius: 8px; /* 增加按钮圆角 */
             transition: background-color 0.3s;
-            width: 250px; /* 固定按钮宽度 */
+            width: 80%; /* 按钮宽度适应手机屏幕 */
             text-align: center;
         }
 
@@ -94,23 +94,17 @@
             background-color: darkgoldenrod;
         }
 
-        /* 响应式设计，手机端优化 */
+        /* 响应式设计，确保手机端适配 */
         @media (max-width: 600px) {
             .container {
-                padding: 20px 10px; /* 调整手机端的内边距 */
-                justify-content: flex-start; /* 内容顶部对齐 */
-            }
-            .link {
-                font-size: 18px; /* 在手机端适当减小字体 */
-                padding: 14px 28px; /* 在手机端适当减小内边距 */
-                width: 80%; /* 按钮宽度适应手机屏幕 */
+                padding: 10px 5px; /* 调整手机端的内边距 */
             }
             h1 {
-                font-size: 8vw; /* 手机端标题字体稍大 */
+                font-size: 12vw; /* 手机端标题字体稍大 */
             }
             .subtitle {
-                font-size: 6vw; /* 手机端副标题字体稍大 */
-                margin-bottom: 20px; /* 调整副标题的间距 */
+                font-size: 7vw; /* 手机端副标题字体稍大 */
+                margin-bottom: 30px; /* 调整副标题的间距 */
             }
         }
     </style>
