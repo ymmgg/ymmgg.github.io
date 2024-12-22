@@ -26,12 +26,22 @@ h1, h2, p {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+/* 所有按钮样式 */
 a {
     display: inline-block;
     margin: 10px;
     padding: 15px 30px;
     text-decoration: none;
-    color: white;
+    color: white; /* 设置文字为白色 */
+    background-color: blue; /* 设置背景为蓝色 */
+    border: 2px solid blue; /* 设置蓝色边框 */
     border-radius: 5px;
     font-size: 1.2rem;
+    transition: background-color 0.3s;
+}
+
+/* 按钮 hover 时的效果 */
+a:hover {
+    background-color: darkblue; /* 鼠标悬停时变为深蓝色 */
+    border-color: darkblue; /* 边框颜色变为深蓝色 */
 }
