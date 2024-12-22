@@ -23,6 +23,7 @@
             padding: 0;
             height: 100%;
             overflow: hidden; /* 禁止滚动 */
+            font-family: Arial, sans-serif;
         }
 
         .container {
@@ -31,39 +32,43 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             padding: 20px;
             color: white;
             box-sizing: border-box;
         }
 
         h1 {
-            margin-bottom: 20px;
-            font-size: 36px; /* 主标题字体大小 */
+            margin-bottom: 10px;
+            font-size: 5vw; /* 自适应宽度的字体大小 */
+            line-height: 1.2;
         }
 
-        /* 这行文字字体稍大一些 */
+        /* 副标题字体 */
         .subtitle {
-            font-size: 28px; /* 比主标题小一点 */
+            font-size: 4vw; /* 自适应宽度的字体大小 */
             margin-bottom: 30px;
+            line-height: 1.4;
         }
 
         /* 按钮容器，设置按钮间距 */
         .buttons {
             display: flex;
             flex-direction: column;
-            gap: 25px; /* 增加按钮之间的间距 */
+            gap: 20px; /* 增加按钮之间的间距 */
         }
 
         /* 按钮基础样式 */
         .link {
             display: inline-block;
-            padding: 16px 32px; /* 增大按钮的内边距 */
+            padding: 18px 36px; /* 增大按钮的内边距 */
             font-size: 22px; /* 增大字体大小 */
             font-weight: bold;
             text-decoration: none;
             border-radius: 8px; /* 增加按钮圆角 */
             transition: background-color 0.3s;
+            width: 250px; /* 固定按钮宽度 */
+            text-align: center;
         }
 
         /* 红色按钮 */
@@ -94,6 +99,7 @@
             .link {
                 font-size: 18px; /* 在手机端适当减小字体 */
                 padding: 14px 28px; /* 在手机端适当减小内边距 */
+                width: 80%; /* 按钮宽度适应手机屏幕 */
             }
         }
     </style>
@@ -102,7 +108,7 @@
     <div class="background" style="background-image: url('background1.jpg');"></div>
     <div class="container">
         <h1>欢迎来到女友电竞俱乐部</h1>
-        <p class="subtitle">专业护航，保证收益！</p>
+        <p class="subtitle">陪玩带赚，保证收益！</p>
         <div class="buttons">
             <a class="link red" href="pricing.html">查看价格表</a>
             <a class="link yellow" href="recruitment.html">加入我们</a>
