@@ -1,97 +1,73 @@
 <!DOCTYPE html>
-<html lang="zh" class="pricing-page">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>价格表 - 女友电竞俱乐部</title>
     <style>
-        /* 只针对价格表页面的样式 */
-        .pricing-page body, .pricing-page html {
+        body, html {
             margin: 0;
             font-family: Arial, sans-serif;
             color: white;
-            text-align: center;
-            height: 100%;
-            overflow: hidden;
-        }
-        .pricing-page .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('background2.jpg');
+            background: url('background2.jpg') no-repeat center center fixed;
             background-size: cover;
-            background-position: center;
-            z-index: -1; /* 保证背景不会遮挡内容 */
-            filter: brightness(1); /* 取消暗化效果 */
+            height: 100%;
+            overflow: auto;
         }
-        .pricing-page .container {
-            position: relative;
-            z-index: 1;
+        .container {
             max-width: 800px;
-            margin: auto;
+            margin: 20px auto;
             padding: 20px;
-            box-sizing: border-box;
+            background-color: rgba(0, 0, 0, 0.6); /* 半透明背景 */
+            border-radius: 8px;
         }
-        .pricing-page h1 {
+        h1 {
             font-size: 2em;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            text-align: center;
         }
-        .pricing-page table {
+        table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
         }
-        .pricing-page th, .pricing-page td {
+        th, td {
             border: 1px solid #444;
             padding: 10px;
             text-align: center;
         }
-        .pricing-page th {
+        th {
             background-color: #444;
             color: white;
         }
-        .pricing-page tbody tr:nth-child(odd) {
+        tbody tr:nth-child(odd) {
             background-color: rgba(255, 255, 255, 0.1);
         }
-        .pricing-page tbody tr:nth-child(even) {
+        tbody tr:nth-child(even) {
             background-color: rgba(255, 255, 255, 0.2);
         }
-        .pricing-page .buttons {
+        .buttons {
             display: flex;
             justify-content: center;
             gap: 15px;
             margin-top: 20px;
         }
-        .pricing-page a {
-            display: inline-block;
+        a {
             padding: 12px 25px;
             font-size: 1.2em;
             text-decoration: none;
             border-radius: 8px;
             color: white;
-            text-align: center;
+            background-color: #007bff;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
         }
-        .pricing-page .big-link {
-            background-color: #007bff; /* 蓝色按钮 */
-        }
-        .pricing-page .big-link:hover {
+        a:hover {
             background-color: #0056b3;
-        }
-        .pricing-page .small-link {
-            background-color: #ff8800; /* 橙色按钮 */
-        }
-        .pricing-page .small-link:hover {
-            background-color: #cc7000;
         }
     </style>
 </head>
 <body>
-    <div class="background"></div>
     <div class="container">
         <h1>女友电竞俱乐部价格表</h1>
         <table>
@@ -168,8 +144,8 @@
         </table>
         <p>需要其他的单可与客服进行详细咨询！若需要其他玩法单等内容可联系客服。</p>
         <div class="buttons">
-            <a class="big-link" href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=t3hVfxL_IEeYuQgBPLbwDklkDoaSOr2J" target="_blank">加入点单群</a>
-            <a class="small-link" href="lottery.html">新人福利抽奖</a>
+            <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=t3hVfxL_IEeYuQgBPLbwDklkDoaSOr2J" target="_blank">加入点单群</a>
+            <a href="lottery.html">新人福利抽奖</a>
         </div>
     </div>
 </body>
