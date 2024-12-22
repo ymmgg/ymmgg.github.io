@@ -1,3 +1,4 @@
+/* 基本样式 */
 body, html {
     height: 100%;
     margin: 0;
@@ -7,11 +8,10 @@ body, html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
 }
 
 .background {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -19,7 +19,7 @@ body, html {
     background-size: cover;
     background-position: center;
     z-index: -1;
-    filter: brightness(0.6);
+    filter: brightness(0.6); /* 调整亮度，确保文字清晰 */
 }
 
 .container {
