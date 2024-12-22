@@ -51,11 +51,14 @@
             line-height: 1.4;
         }
 
-        /* 按钮容器，设置按钮间距 */
+        /* 按钮容器，设置按钮间距并让按钮居中 */
         .buttons {
             display: flex;
             flex-direction: column;
+            justify-content: center;
+            align-items: center;
             gap: 20px; /* 增加按钮之间的间距 */
+            height: 100%; /* 使按钮容器撑满剩余空间 */
         }
 
         /* 按钮基础样式 */
