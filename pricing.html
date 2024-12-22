@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh" class="pricing-page">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>价格表 - 女友电竞俱乐部</title>
     <style>
-        body, html {
+        /* 只针对价格表页面的样式 */
+        .pricing-page body, .pricing-page html {
             margin: 0;
             font-family: Arial, sans-serif;
             color: white;
-            background: linear-gradient(to bottom, #000, #222);
             text-align: center;
+            height: 100%;
+            overflow: hidden;
         }
-        .background {
+        .pricing-page .background {
             position: fixed;
             top: 0;
             left: 0;
@@ -21,10 +23,10 @@
             background-image: url('background2.jpg');
             background-size: cover;
             background-position: center;
-            z-index: -1;
-            filter: brightness(0.6);
+            z-index: -1; /* 保证背景不会遮挡内容 */
+            filter: brightness(1); /* 取消暗化效果 */
         }
-        .container {
+        .pricing-page .container {
             position: relative;
             z-index: 1;
             max-width: 800px;
@@ -32,38 +34,38 @@
             padding: 20px;
             box-sizing: border-box;
         }
-        h1 {
+        .pricing-page h1 {
             font-size: 2em;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
-        table {
+        .pricing-page table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
         }
-        th, td {
+        .pricing-page th, .pricing-page td {
             border: 1px solid #444;
             padding: 10px;
             text-align: center;
         }
-        th {
+        .pricing-page th {
             background-color: #444;
             color: white;
         }
-        tbody tr:nth-child(odd) {
+        .pricing-page tbody tr:nth-child(odd) {
             background-color: rgba(255, 255, 255, 0.1);
         }
-        tbody tr:nth-child(even) {
+        .pricing-page tbody tr:nth-child(even) {
             background-color: rgba(255, 255, 255, 0.2);
         }
-        .buttons {
+        .pricing-page .buttons {
             display: flex;
             justify-content: center;
             gap: 15px;
             margin-top: 20px;
         }
-        a {
+        .pricing-page a {
             display: inline-block;
             padding: 12px 25px;
             font-size: 1.2em;
@@ -74,16 +76,16 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
         }
-        .big-link {
+        .pricing-page .big-link {
             background-color: #007bff; /* 蓝色按钮 */
         }
-        .big-link:hover {
+        .pricing-page .big-link:hover {
             background-color: #0056b3;
         }
-        .small-link {
+        .pricing-page .small-link {
             background-color: #ff8800; /* 橙色按钮 */
         }
-        .small-link:hover {
+        .pricing-page .small-link:hover {
             background-color: #cc7000;
         }
     </style>
