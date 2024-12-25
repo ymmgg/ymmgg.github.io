@@ -11,7 +11,7 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            color: #ADD8E6; /* 浅蓝色字体 */
+            color: #ADD8E6;
             margin: 0;
             padding: 0;
             height: 100vh;
@@ -70,7 +70,6 @@
             display: none;
         }
 
-        /* 手机端优化 */
         @media (max-width: 768px) {
             .btn {
                 padding: 12px;
@@ -86,7 +85,6 @@
             }
         }
 
-        /* 更小屏幕优化 */
         @media (max-width: 480px) {
             .btn {
                 padding: 10px;
@@ -119,17 +117,19 @@
         function startLottery() {
             if (hasEntered) {
                 // 如果已经抽过奖，显示已抽中的奖品
-                document.getElementById('warning').textContent = `您已抽中: ${prize}，请截屏兑换！`;
+                document.getElementById('warning').textContent = `您已抽中: ${prize}，请截屏进群兑换！`;
                 document.getElementById('warning').classList.remove('hidden');
                 return;
             }
 
             // 设置概率
             const randomNum = Math.random();
-            if (randomNum < 0.0001) {
+            if (randomNum < 0.01) {
                 prize = "免单";
-            } else if (randomNum < 0.001) {
+            } else if (randomNum < 0.11) {
                 prize = "五折";
+            } else if (randomNum < 0.31) {
+                prize = "七折";
             } else {
                 prize = "九折";
             }
@@ -143,9 +143,8 @@
             localStorage.setItem('hasEntered', 'true');
             localStorage.setItem('prize', prize);
 
-            // 显示奖品提示
-            document.getElementById('warning').textContent = `您已抽中: ${prize}，请截屏兑换！`;
-            document.getElementById('warning').classList.remove('hidden');
+            // 设置已抽奖提示
+            document.getElementById('warning').textContent = `您已抽中: ${prize}，请截屏进群兑换！`;
         }
     </script>
 </body>
